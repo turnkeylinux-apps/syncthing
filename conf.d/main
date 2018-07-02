@@ -1,0 +1,9 @@
+#!/bin/sh -ex
+echo "do nothing - core requires no post-package configuration commands"
+
+#!/bin/sh -ex
+
+apt-get update
+useradd -r syncthing -m -d /home/syncthing
+apt-get -y install syncthing 
+#--allow-unauthenticated

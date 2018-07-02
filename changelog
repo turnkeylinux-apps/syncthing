@@ -1,0 +1,7 @@
+turnkey-syncthing-15.0 (1) UNRELEASED; urgency=low
+
+  * Initial appliance release based on core appliance
+
+  * Includes v1.0 of syncthing, installed from third party debian repo
+
+ -- Miles McQuiston <ptm@tapbop.com>  Mon, 02 Jul 2018 21:33:00 +0000

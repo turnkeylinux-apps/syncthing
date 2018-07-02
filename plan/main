@@ -1,0 +1,4 @@
+#include <turnkey/base>
+
+apt-transport-https
+python-bcrypt
