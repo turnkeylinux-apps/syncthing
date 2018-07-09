@@ -4,4 +4,4 @@
 . /etc/default/inithooks
 
 [ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
-$INITHOOKS_PATH/bin/syncthingconfig.py --pass="$APP_PASS"
+$INITHOOKS_PATH/bin/syncthing.py --pass="$APP_PASS"
