@@ -1,9 +1,8 @@
 #!/bin/sh -ex
-echo "do nothing - core requires no post-package configuration commands"
 
-#!/bin/sh -ex
-
-apt-get update
 useradd -r syncthing -m -d /home/syncthing
-apt-get -y install syncthing 
-#--allow-unauthenticated
+DEBIAN_FRONTEND=noninteractive apt-get update -y
+DEBIAN_FRONTEND=noninteractive apt-get install -y syncthing
+
+# syncthing service generates secrets on first run, so is enabled and
+# started via /usr/lib/inithooks/firstboot.d/20regen-syncthing-secrets
