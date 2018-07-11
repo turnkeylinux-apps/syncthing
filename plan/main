@@ -2,3 +2,5 @@
 
 apt-transport-https
 python-bcrypt
+
+nginx /* nginx reverse proxy for Syncthing Web UI */

@@ -41,7 +41,7 @@ def main():
     hashpw = bcrypt.hashpw(password, bcrypt.gensalt())
 
     """Assign password to user syncthing based off input"""
-    system('sed', '-i', '\|<user>syncthing</user>|!b;n;c \\t<password>%s</password>' % hashpw, '/home/syncthing/.config/syncthing/config.xml')
+    system('sed', '-i', '\|<user>syncthing</user>|!b;n;c \\\t<password>%s</password>' % hashpw, '/home/syncthing/.config/syncthing/config.xml')
     """Restart Syncthing"""
     system('systemctl', 'restart', 'syncthing@syncthing.service')
 
