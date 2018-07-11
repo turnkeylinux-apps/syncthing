@@ -1,0 +1,39 @@
+# connect to Syncthing UI localhost on 8383 (non-standard Syncthing port)
+upstream syncthing {
+    server 127.0.0.1:8383;
+}
+
+# redirect http to https
+server {
+    listen 0.0.0.0:80;
+    return 302 https://$host$request_uri;
+}
+
+# redirect 8384 (Syncthing UI default) to https
+server {
+    listen 0.0.0.0:8384;
+    return 302 https://$host$request_uri;
+}
+
+server {
+    listen 0.0.0.0:443 ssl;
+    access_log /var/log/nginx/syncthing.log;
+    error_log /var/log/nginx/syncthing_error.log;
+    include /etc/nginx/include/ssl;
+
+    location / {
+         proxy_set_header Host $host;
+         proxy_set_header X-Real-IP $remote_addr;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header X-Forwarded-Proto $scheme;
+
+         proxy_pass http://localhost:8383;
+
+         proxy_read_timeout 600s;
+         proxy_send_timeout 600s;
+
+         proxy_redirect off;
+         proxy_buffering off;
+    }
+}
+

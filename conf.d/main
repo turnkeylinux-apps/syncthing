@@ -6,3 +6,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y syncthing
 
 # syncthing service generates secrets on first run, so is enabled and
 # started via /usr/lib/inithooks/firstboot.d/20regen-syncthing-secrets
+
+# enabled nginx reverse proxy
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/syncthing /etc/nginx/sites-enabled/syncthing
