@@ -1,7 +1,7 @@
-turnkey-syncthing-15.0 (1) UNRELEASED; urgency=low
+turnkey-syncthing-15.0 (1) turnkey; urgency=low
 
-  * Initial appliance release based on core appliance
+  * Initial appliance release based on Core appliance.
 
-  * Includes v1.0 of syncthing, installed from third party debian repo
+  * Includes Syncthing v0.14.48, installed from third party debian repo.
 
  -- Miles McQuiston <ptm@tapbop.com>  Mon, 02 Jul 2018 21:33:00 +0000
