@@ -42,5 +42,7 @@ Credentials *(passwords set at first boot)*
 -  Webmin, SSH: username **root**
 -  Syncthing Web GUI: username **syncthing**
 
+
 .. _Syncthing: https://syncthing.net/
+.. _TurnKey Core: https://www.turnkeylinux.org/core
 .. _Stable Release Channel: https://docs.syncthing.net/users/releases.html
