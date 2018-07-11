@@ -6,7 +6,9 @@ server {
 
 # redirect 8384 (Syncthing UI default) to https
 server {
-    listen 0.0.0.0:8384;
+    listen 0.0.0.0:8384 ssl;
+    include /etc/nginx/include/ssl;
+    error_page 497 =302 https://$host$request_uri;
     return 302 https://$host$request_uri;
 }
 

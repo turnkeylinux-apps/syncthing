@@ -21,7 +21,7 @@ and on top of that:
   - Syncthing reverse proxied via Nginx:
 
     - Port 80 redirects to port 443 (http -> https).
-    - Syncthing default port 8384 (http) redirects to 443 (https).
+    - Syncthing default port 8384 (http/https) redirects to 443 (https).
 
   - **Security note**: Updates to Syncthing may require supervision so
     they **ARE NOT** configured to install automatically.
