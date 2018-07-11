@@ -9,16 +9,19 @@ it's transmitted over the Internet.
 This appliance includes all the standard features in `TurnKey Core`_,
 and on top of that:
 
-- Syncthing: 
+- Syncthing:
   
   - Installed from the `Stable Release Channel`_ via the official Syncthing
     apt package repository.
 
-  - Pre-configured for remote access.
+  - Pre-configured for remote access, with password set on firstboot.
 
-  - SSL pre-enabled (self signed certifcate).
+  - SSL/TLS pre-enabled - uses default system SSL/TLS certificate.
 
-  - Listening on Syncthing default port - 8384.
+  - Syncthing reverse proxied via Nginx:
+
+    - Port 80 redirects to port 443 (http -> https).
+    - Syncthing default port 8384 (http) redirects to 443 (https).
 
   - **Security note**: Updates to Syncthing may require supervision so
     they **ARE NOT** configured to install automatically.
