@@ -42,7 +42,7 @@ def main():
             "Syncthing Password",
             "Enter new password for the 'syncthing' Web UI user.")
 
-    hashpw = bcrypt.hashpw(password, bcrypt.gensalt())
+    hashpw = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 
     # Assign password to user syncthing based off input & restart
     subprocess.run([
