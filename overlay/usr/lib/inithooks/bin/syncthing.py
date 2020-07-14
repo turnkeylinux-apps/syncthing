@@ -1,28 +1,32 @@
-#!/usr/bin/python
-"""Set Syncthing Default Password and User and Edit Config Files to allow remote access to web gui
-Option:
+#!/usr/bin/python3
+"""Set Syncthing Default Password and User and Edit Config Files to allow
+remote access to web gui
+
+Options:
     --pass=     unless provided, will ask interactively
 """
 
 import sys
 import getopt
 import bcrypt
+import subprocess
 
-from executil import system
 from dialog_wrapper import Dialog
+
 
 def usage(s=None):
     if s:
-        print >> sys.stderr, "Error:", s
-    print >> sys.stderr, "Syntax: %s [options]" % sys.argv[0]
-    print >> sys.stderr, __doc__
+        print("Error:", s, file=sys.stderr)
+    print("Syntax: %s [options]" % sys.argv[0], file=sys.stderr)
+    print(__doc__, file=sys.stderr)
     sys.exit(1)
+
 
 def main():
     try:
         opts, args = getopt.gnu_getopt(sys.argv[1:], "h",
                                        ['help', 'pass='])
-    except getopt.GetoptError, e:
+    except getopt.GetoptError as e:
         usage(e)
 
     password = ""
@@ -38,14 +42,15 @@ def main():
             "Syncthing Password",
             "Enter new password for the 'syncthing' Web UI user.")
 
-    hashpw = bcrypt.hashpw(password, bcrypt.gensalt())
+    hashpw = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 
-    """Assign password to user syncthing based off input"""
-    system('sed', '-i', '\|<user>syncthing</user>|!b;n;c \\\t<password>%s</password>' % hashpw, '/home/syncthing/.config/syncthing/config.xml')
-    """Restart Syncthing"""
-    system('systemctl', 'restart', 'syncthing@syncthing.service')
+    # Assign password to user syncthing based off input & restart
+    subprocess.run([
+        'sed', '-i',
+        '\|<user>syncthing</user>|!b;n;c \\\t<password>%s</password>' % hashpw,
+        '/home/syncthing/.config/syncthing/config.xml'])
+    subprocess.run(['systemctl', 'restart', 'syncthing@syncthing.service'])
+
 
 if __name__ == "__main__":
     main()
-
-

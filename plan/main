@@ -1,6 +1,5 @@
 #include <turnkey/base>
 
-apt-transport-https
-python-bcrypt
+python3-bcrypt
 
-nginx /* nginx reverse proxy for Syncthing Web UI */
+nginx       /* nginx reverse proxy for Syncthing Web UI */
