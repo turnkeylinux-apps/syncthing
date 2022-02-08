@@ -11,7 +11,7 @@ import getopt
 import bcrypt
 import subprocess
 
-from dialog_wrapper import Dialog
+from libinithooks.dialog_wrapper import Dialog
 
 
 def usage(s=None):

@@ -1,3 +1,12 @@
+turnkey-syncthing-17.0 (1) turnkey; urgency=low
+
+  * Update to latest upstream Syncthing (via upstream apt repo) - v1.19.0.
+
+  * Note: Please refer to turnkey-core's 16.1 changelog for changes common to
+    all appliances. Here we only describe changes specific to this appliance.
+
+ -- Zhenya Hvorostian <zhenya@turnkeylinux.org>  Tue, 8 Feb 2021 13:40:00 +0300
+
 turnkey-syncthing-16.1 (1) turnkey; urgency=low
 
   * Update to latest upstream Syncthing (via upstream apt repo) - v1.15.1.
