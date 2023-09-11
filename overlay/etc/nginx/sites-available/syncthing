@@ -1,11 +1,13 @@
 # redirect http to https
 server {
+    listen [::]:80;
     listen 0.0.0.0:80;
     return 302 https://$host$request_uri;
 }
 
 # redirect 8384 (Syncthing UI default) to https
 server {
+    listen [::]:8384 ssl;
     listen 0.0.0.0:8384 ssl;
     include /etc/nginx/snippets/ssl.conf;
     error_page 497 =302 https://$host$request_uri;
@@ -14,6 +16,7 @@ server {
 
 # reverse proxy for syncthing
 server {
+    listen [::]:443 ssl;
     listen 0.0.0.0:443 ssl;
     access_log /var/log/nginx/syncthing.log;
     error_log /var/log/nginx/syncthing_error.log;
