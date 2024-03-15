@@ -1,3 +1,9 @@
+turnkey-syncthing-18.0 (1) turnkey; urgency=low
+
+  * Update to latest upstream Syncthing (via upstream apt repo) - v1.27.4.
+
+ -- Stefan Davis <stefan@turnkeylinux.org>  Fri, 15 Mar 2024 01:50:39 +0000
+
 turnkey-syncthing-17.1 (1) turnkey; urgency=low
 
   * Updated all Debian packages to latest.
