@@ -48,7 +48,7 @@ def main():
     subprocess.run([
         'sed', '-i',
         '\|<user>syncthing</user>|!b;n;c \\\t<password>%s</password>' % hashpw,
-        '/home/syncthing/.config/syncthing/config.xml'])
+        '/home/syncthing/.local/state/syncthing/config.xml'])
     subprocess.run(['systemctl', 'restart', 'syncthing@syncthing.service'])
 
 
