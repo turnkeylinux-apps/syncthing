@@ -56,10 +56,10 @@ grep -Eq 'ssl_certificate[[:space:]]+/etc/ssl/private/cert.pem;' \
 
 curl --insecure --fail --silent --show-error --location \
     http://127.0.0.1/ >"$response"
-grep -qi '<title>Syncthing' "$response"
+grep -Fq 'ng-app="syncthing"' "$response"
 curl --insecure --fail --silent --show-error \
     https://127.0.0.1/ >"$response"
-grep -qi '<title>Syncthing' "$response"
+grep -Fq 'ng-app="syncthing"' "$response"
 
 curl --silent --show-error --dump-header "$headers" --output /dev/null \
     http://127.0.0.1:8384/
