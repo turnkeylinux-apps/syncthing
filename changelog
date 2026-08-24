@@ -1,3 +1,17 @@
+turnkey-syncthing-19.0 (1) turnkey; urgency=low
+
+  * Upgrade the base distribution to Debian 13/Trixie.
+
+  * Use the Debian Trixie Syncthing package and signed APT update path instead
+    of the third-party Syncthing repository.
+
+  * Preserve the firstboot-authenticated web interface, Nginx TLS proxy,
+    default synchronization folder and supervised update workflow.
+
+  * See the TurnKey Core 19.0 changelog for changes common to all appliances.
+
+ -- TurnKey Linux release engineering <release@turnkeylinux.org>  Mon, 24 Aug 2026 00:00:00 +0000
+
 turnkey-syncthing-18.0 (1) turnkey; urgency=low
 
   * Update to latest upstream Syncthing (via upstream apt repo) - v1.27.4.

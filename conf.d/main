@@ -1,11 +1,6 @@
 #!/bin/sh -ex
 
-APT_GPG_URL=https://syncthing.net/release-key.txt
-curl -sS $APT_GPG_URL | apt-key --keyring /usr/share/keyrings/syncthing.gpg add -
-
 useradd -r syncthing -m -d /home/syncthing
-DEBIAN_FRONTEND=noninteractive apt-get update -y
-DEBIAN_FRONTEND=noninteractive apt-get install -y syncthing
 
 # syncthing service generates secrets on first run, so is enabled and
 # started via /usr/lib/inithooks/firstboot.d/20regen-syncthing-secrets
