@@ -51,8 +51,8 @@ test "$(stat -c '%U:%G' "$sync_root")" = syncthing:syncthing
 ss -ltn | grep -Eq '127\.0\.0\.1:8383[[:space:]]'
 ss -ltn | grep -Eq ':22000[[:space:]]'
 ss -lun | grep -Eq ':(21027|22000)[[:space:]]'
-nginx -T 2>/dev/null | grep -Eq \
-    'ssl_certificate[[:space:]]+/etc/ssl/private/cert.pem;'
+grep -Eq 'ssl_certificate[[:space:]]+/etc/ssl/private/cert.pem;' \
+    /etc/nginx/snippets/ssl.conf
 
 curl --insecure --fail --silent --show-error --location \
     http://127.0.0.1/ >"$response"
