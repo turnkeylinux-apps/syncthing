@@ -11,8 +11,7 @@ and on top of that:
 
 - Syncthing:
   
-  - Installed from the `Stable Release Channel`_ via the official Syncthing
-    apt package repository.
+  - Syncthing 1.29 installed from Debian Trixie and maintained through APT.
 
   - Pre-configured for remote access, with password set on firstboot.
 
@@ -33,7 +32,8 @@ Supervised Manual Syncthing Update
 To upgrade to the latest version of Syncthing from the command line::
 
     apt-get update
-    apt-get install syncthing
+    apt-get install --only-upgrade syncthing
+    systemctl restart syncthing@syncthing.service
 
 
 Credentials *(passwords set at first boot)*
@@ -45,4 +45,3 @@ Credentials *(passwords set at first boot)*
 
 .. _Syncthing: https://syncthing.net/
 .. _TurnKey Core: https://www.turnkeylinux.org/core
-.. _Stable Release Channel: https://docs.syncthing.net/users/releases.html

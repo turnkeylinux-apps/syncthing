@@ -1,5 +1,6 @@
 #include <turnkey/base>
 
 python3-bcrypt
+syncthing
 
 nginx       /* nginx reverse proxy for Syncthing Web UI */

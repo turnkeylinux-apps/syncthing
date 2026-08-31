@@ -1,7 +1,0 @@
-Package: *
-Pin: release apt.syncthing.net
-Pin-Priority: 100
-
-Package: syncthing
-Pin: release apt.syncthing.net
-Pin-Priority: 500
